@@ -1283,15 +1283,107 @@ p {
 }
 
 /* === Адаптивность === */
+
+/* Маленькие телефоны (до 400px) */
+@media (max-width: 400px) {
+  .app {
+    padding: 0 10px 24px;
+  }
+
+  .nav {
+    padding: 10px 12px 14px;
+  }
+
+  .nav a,
+  .nav .nav-link {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  .nav-links {
+    gap: 6px;
+  }
+
+  h1 {
+    font-size: 1.35rem;
+    margin: 16px 0 12px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin: 14px 0 10px;
+  }
+
+  .family-card,
+  .home-urgent,
+  .home-motivation,
+  .task-card,
+  .add-task-form,
+  .profile-card,
+  .settings-card {
+    padding: 12px;
+  }
+
+  .summary-card {
+    flex: 1 1 100%;
+    padding: 10px 12px;
+  }
+
+  .summary-value {
+    font-size: 1.2rem;
+  }
+
+  .calendar-day {
+    min-height: 70px;
+    padding: 6px;
+  }
+
+  .calendar-grid-month .calendar-day {
+    min-height: 64px;
+  }
+
+  .calendar-day-label {
+    font-size: 0.75rem;
+  }
+
+  .calendar-task-chip {
+    padding: 4px 6px;
+    font-size: 0.8rem;
+  }
+
+  .modal-content {
+    margin: 8px;
+    max-height: calc(100vh - 16px);
+  }
+
+  .modal-overlay {
+    padding: 8px;
+  }
+
+  .reward-label-input {
+    min-width: 100%;
+  }
+
+  .inline-form {
+    flex-direction: column;
+  }
+
+  .inline-form .btn {
+    width: 100%;
+  }
+}
+
+/* Телефоны (до 600px) */
 @media (max-width: 600px) {
   .app {
-    padding: 0 12px;
+    padding: 0 12px 28px;
   }
 
   .nav {
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
+    padding: 12px 14px 16px;
   }
 
   .nav-links {
@@ -1301,16 +1393,365 @@ p {
     flex-wrap: wrap;
   }
 
-  h1 {
-    font-size: 1.5rem;
+  .nav a,
+  .nav .nav-link {
+    padding: 8px 12px;
   }
 
-  .btn {
-    padding: 8px 12px;
-    font-size: 0.95rem;
+  h1 {
+    font-size: 1.5rem;
+    margin: 20px 0 14px;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .page-header {
+    margin: 16px 0 10px;
+  }
+
+  /* Домашняя панель */
+  .home-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .home-header-right {
+    align-items: flex-start;
+  }
+
+  .home-period-toggle {
+    flex-wrap: wrap;
+  }
+
+  .family-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .home-secondary {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .family-card-main {
+    gap: 10px;
+  }
+
+  .progress-ring {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  .progress-ring-inner {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+  }
+
+  .progress-ring-value {
+    font-size: 0.7rem;
+  }
+
+  /* Задачи */
+  .tasks-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .tasks-toolbar-left {
+    flex: none;
+  }
+
+  .tasks-search {
+    max-width: none;
+  }
+
+  .tasks-filters {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tasks-toolbar-right {
+    justify-content: flex-start;
+  }
+
+  .task-board {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .task-card {
+    padding: 14px;
+    margin: 10px 0;
+  }
+
+  .task-card-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .task-actions {
     flex-direction: column;
+    gap: 8px;
+  }
+
+  .task-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .summary-cards {
+    gap: 10px;
+  }
+
+  .summary-card {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 0;
+  }
+
+  .add-task-form {
+    padding: 14px;
+    margin: 12px 0;
+  }
+
+  .add-task-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Календарь */
+  .calendar-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .calendar-view-toggle {
+    flex-wrap: wrap;
+  }
+
+  .calendar-month-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .calendar-month-title {
+    min-width: auto;
+    width: 100%;
+    order: -1;
+  }
+
+  .calendar-filters {
+    flex-direction: column;
+  }
+
+  .calendar-grid {
+    gap: 6px;
+  }
+
+  .calendar-day {
+    min-height: 80px;
+    padding: 6px 8px;
+  }
+
+  .calendar-day-label {
+    font-size: 0.8rem;
+  }
+
+  .calendar-undo-list .calendar-task-chip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Профиль */
+  .profile-main {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-selector {
+    max-width: none;
+  }
+
+  /* Настройки */
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rewards-list .reward-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .reward-points-input {
+    width: 100%;
+  }
+
+  .reward-label-input {
+    min-width: 0;
+  }
+
+  /* Модалки */
+  .modal-content {
+    max-width: calc(100vw - 24px);
+    border-radius: 12px;
+  }
+
+  .modal-header {
+    padding: 14px 14px 0;
+  }
+
+  .redistribute-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .redistribute-select {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .member-choices {
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+
+  .btn-block {
+    padding: 10px 16px;
+  }
+}
+
+/* Планшеты (600px – 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+  .app {
+    padding: 0 14px 28px;
+  }
+
+  .family-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+
+  .home-secondary {
+    grid-template-columns: 1fr;
+  }
+
+  .task-board {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .profile-main {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .calendar-grid.calendar-grid-month .calendar-day {
+    min-height: 72px;
+  }
+}
+
+/* Планшеты и узкий десктоп (768px – 920px) */
+@media (min-width: 769px) and (max-width: 920px) {
+  .task-board {
+    gap: 14px;
+  }
+
+  .home-secondary {
+    gap: 14px;
+  }
+
+  .profile-main {
+    gap: 14px;
+  }
+
+  .rewards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+/* Десктоп: улучшенные отступы и читаемость */
+@media (min-width: 921px) {
+  .app {
+    padding: 0 24px 40px;
+  }
+
+  .nav {
+    padding: 16px 24px 20px;
+  }
+
+  .nav-links {
+    gap: 12px 18px;
+  }
+
+  .page-header {
+    margin: 28px 0 16px;
+  }
+
+  .family-grid {
+    gap: 20px;
+  }
+
+  .task-card:hover {
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: box-shadow 0.2s;
+  }
+
+  .summary-cards {
+    gap: 16px;
+  }
+
+  .summary-card {
+    flex: 1 1 160px;
+  }
+
+  .modal-content {
+    max-width: 520px;
+  }
+}
+
+/* Широкий экран: ограничение ширины контента */
+@media (min-width: 1200px) {
+  .app {
+    max-width: 1000px;
+    padding: 0 32px 48px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 28px 0 20px;
+  }
+
+  .family-card,
+  .home-urgent,
+  .home-motivation,
+  .profile-card,
+  .settings-card {
+    padding: 18px 20px;
   }
 }
