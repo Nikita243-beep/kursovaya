@@ -1,0 +1,1316 @@
+/* === Цветовая палитра (тёплая «домашняя») === */
+:root {
+  --bg-page: #f5f0e8;
+  --bg-card: #fffefb;
+  --border: #e0d8ce;
+  --border-focus: #b8543a;
+  --text: #2c2420;
+  --text-muted: #6b5d52;
+  --accent: #b8543a;
+  --accent-hover: #9c4530;
+  --success: #4a7c59;
+  --success-hover: #3d6a4a;
+  --neutral: #8b7355;
+  --neutral-hover: #72604a;
+  --pill-bg: #f5e8e4;
+  --pill-text: #8b3d2e;
+  --shadow: rgba(44, 36, 32, 0.06);
+}
+
+/* === Сброс и базовые стили === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', 'Nunito', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.app {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 16px 32px;
+}
+
+/* === Навигация === */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 16px 18px;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-app-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.nav-app-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  justify-content: center;
+}
+
+.nav a,
+.nav .nav-link {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav a:hover,
+.nav a:focus,
+.nav .nav-link:hover,
+.nav .nav-link:focus {
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+}
+
+.nav .nav-link.active {
+  background-color: var(--accent);
+  color: white;
+}
+
+.nav .nav-link.active:hover,
+.nav .nav-link.active:focus {
+  background-color: var(--accent-hover);
+  color: white;
+}
+
+/* === Контент страницы === */
+.app-content {
+  margin-top: 8px;
+}
+
+.page {
+  padding-top: 8px;
+}
+
+.page-header {
+  margin: 24px 0 12px;
+}
+
+/* === Заголовки === */
+h1 {
+  font-size: 1.8rem;
+  margin: 24px 0 16px;
+  color: var(--text);
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 20px 0 12px;
+  color: var(--text);
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin: 16px 0 8px;
+  color: var(--text);
+}
+
+.page-description {
+  margin-top: 4px;
+  max-width: 560px;
+  color: var(--text-muted);
+}
+
+.page-section {
+  margin-top: 16px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+/* === Формы и поля ввода === */
+.input-text {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+  background-color: var(--bg-card);
+}
+
+.input-text:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 2px rgba(184, 84, 58, 0.15);
+}
+
+/* === Кнопки === */
+.btn {
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.btn-success {
+  background-color: var(--success);
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: var(--success-hover);
+}
+
+.btn-secondary {
+  background-color: var(--neutral);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--neutral-hover);
+}
+
+/* === Карточка задачи === */
+.task-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px 0;
+  background: var(--bg-card);
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.task-card-header-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.task-card-overdue {
+  border-left: 3px solid #8b3d3d;
+  background-color: #fef5f5;
+}
+
+.task-difficulty-overdue {
+  background-color: #ecd5d5;
+  color: #8b3d3d;
+}
+
+.task-title {
+  margin: 0;
+}
+
+.assignee-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+}
+
+.task-description {
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+.task-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+}
+
+.task-due {
+  color: var(--text-muted);
+}
+
+.task-difficulty {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.task-difficulty-easy {
+  background-color: #d4e8d9;
+  color: #2d5a3a;
+}
+
+.task-difficulty-medium {
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+}
+
+.task-difficulty-hard {
+  background-color: #ecd5d5;
+  color: #8b3d3d;
+}
+
+.task-rotation {
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+
+.task-card h3 {
+  margin-top: 0;
+}
+
+.task-card p {
+  margin-bottom: 6px;
+}
+
+.task-card .last-completed {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.task-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.task-list {
+  margin-top: 8px;
+}
+
+/* === Форма добавления задачи === */
+.add-task-form {
+  background: var(--bg-card);
+  padding: 16px;
+  border-radius: 10px;
+  margin: 16px 0;
+  border: 1px solid var(--border);
+}
+
+.add-task-form h3 {
+  margin-top: 0;
+}
+
+.add-task-form label {
+  display: block;
+  margin: 6px 0;
+  font-weight: normal;
+}
+
+.member-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-bottom: 12px;
+}
+
+.member-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+/* === Настройки: участники === */
+.member-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 24px;
+}
+
+.member-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: var(--bg-card);
+  margin: 6px 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.member-item-empty {
+  justify-content: center;
+}
+
+.card-inline-form {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid var(--border);
+}
+
+.inline-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.field-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* === Бейджи, сводка и пустые состояния === */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+}
+
+.badge-pill {
+  min-width: 24px;
+}
+
+.empty-state {
+  margin-top: 12px;
+  padding: 20px 16px;
+  border-radius: 10px;
+  background-color: var(--bg-card);
+  border: 1px dashed var(--border);
+}
+
+.summary-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.summary-card {
+  flex: 1 1 140px;
+  background-color: var(--bg-card);
+  border-radius: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.summary-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.summary-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* === Общие утилиты === */
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mb-12 {
+  margin-bottom: 12px;
+}
+
+/* === Домашняя панель === */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.home-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.home-date {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.home-period-toggle {
+  display: flex;
+  gap: 6px;
+}
+
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.family-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.family-card-main {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.family-card-info h3 {
+  margin: 0;
+}
+
+.family-card-tasks ul {
+  list-style: disc;
+  padding-left: 18px;
+}
+
+.family-card-tasks .small {
+  font-size: 0.85rem;
+}
+
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+.progress-ring {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring-inner {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  background-color: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px var(--border);
+  overflow: hidden;
+}
+
+.progress-ring-value {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.home-secondary {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 16px;
+}
+
+.home-urgent,
+.home-motivation {
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 14px 14px 12px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.urgent-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+}
+
+.urgent-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.urgent-list li:last-child {
+  border-bottom: none;
+}
+
+.urgent-title {
+  font-size: 0.95rem;
+}
+
+.urgent-assignee {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.best-helper-card {
+  margin-top: 4px;
+}
+
+.best-helper-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.best-helper-avatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+.rewards-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+
+.reward-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.reward-points-input {
+  width: 72px;
+  text-align: right;
+}
+
+.reward-label-input {
+  flex: 1;
+  min-width: 140px;
+}
+
+.reward-equals {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.reward-remove-btn {
+  flex-shrink: 0;
+  min-width: 32px;
+  padding: 6px;
+}
+
+.rewards-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.reward-badge {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.reward-badge-gold {
+  background-color: #e8d4a8;
+  color: #5c4a20;
+}
+
+.reward-badge-blue {
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+}
+
+.reward-badge-green {
+  background-color: #d4e8d9;
+  color: #2d5a3a;
+}
+
+/* === Задачи: фильтры и доска === */
+.tasks-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tasks-toolbar-left {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tasks-search {
+  max-width: 360px;
+}
+
+.tasks-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tasks-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.view-toggle {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.task-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.task-column {
+  background-color: var(--bg-page);
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid var(--border);
+}
+
+.task-column h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.add-task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.add-task-textarea {
+  resize: vertical;
+}
+
+.input-select {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-card);
+}
+
+.difficulty-range {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.difficulty-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+/* === Календарь === */
+.calendar-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.calendar-view-toggle {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.calendar-filters {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.calendar-month-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.calendar-month-title {
+  font-weight: 600;
+  color: var(--text);
+  min-width: 180px;
+  text-align: center;
+}
+
+.calendar-undo-section {
+  margin-bottom: 8px;
+}
+
+.calendar-undo-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.calendar-undo-list .calendar-task-chip {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.calendar-undo-list .calendar-task-chip .calendar-task-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.calendar-grid-single {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.calendar-day {
+  background-color: var(--bg-card);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 8px;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-day-today {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.calendar-grid-month .calendar-day {
+  min-height: 80px;
+}
+
+.calendar-day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.calendar-day-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.calendar-day-load {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.calendar-day-tasks {
+  flex: 1;
+}
+
+.calendar-task-chip {
+  padding: 6px 8px;
+  border-radius: 6px;
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  line-height: 1.35;
+}
+
+.calendar-task-chip-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.calendar-task-title {
+  font-weight: 500;
+  flex: 1;
+  min-width: 0;
+}
+
+.calendar-task-title-text {
+  font-weight: 500;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.3;
+}
+
+.calendar-task-chip-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+.calendar-task-repeat-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  opacity: 0.9;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.calendar-task-chip-sep {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin: 0 1px;
+  user-select: none;
+}
+
+.calendar-task-assignee {
+  color: var(--text);
+}
+
+/* === Профиль и награды === */
+.profile-selector {
+  max-width: 260px;
+}
+
+.profile-main {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 3fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.profile-card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.profile-avatar {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+  overflow: hidden;
+}
+
+.profile-info h2 {
+  margin: 0 0 4px;
+}
+
+.profile-progress {
+  margin: 12px 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background-color: var(--border);
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--success);
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.profile-stat-card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 14px 14px 12px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.stat-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+}
+
+.stat-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.stat-pill {
+  min-width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.stat-bars {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.stat-bar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-bar-value {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.stat-bar {
+  width: 100%;
+  height: 60px;
+  border-radius: 6px;
+  background-color: var(--border);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  width: 100%;
+  background-color: var(--accent);
+}
+
+.profile-rewards {
+  margin-top: 24px;
+}
+
+.rewards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.reward-card {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+}
+
+.reward-card-active {
+  background-color: var(--bg-card);
+  border-color: var(--success);
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.reward-card-locked {
+  background-color: var(--bg-page);
+  opacity: 0.95;
+}
+
+/* === Настройки: ротация и награды === */
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.settings-card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 14px 14px 12px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.settings-options {
+  margin-top: 8px;
+}
+
+.member-meta {
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+/* === Модальное окно перераспределения === */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border-radius: 14px;
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 40px rgba(44, 36, 32, 0.2);
+  border: 1px solid var(--border);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px 0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 4px 8px;
+}
+
+.modal-close:hover {
+  color: var(--text);
+}
+
+.modal-content .mb-12 {
+  margin-bottom: 12px;
+}
+
+.modal-content p {
+  padding: 0 16px;
+}
+
+.redistribute-list {
+  list-style: none;
+  padding: 0 16px;
+  margin: 12px 0;
+}
+
+.redistribute-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.redistribute-item:last-child {
+  border-bottom: none;
+}
+
+.redistribute-task-title {
+  font-weight: 500;
+  flex: 1;
+  min-width: 0;
+}
+
+.redistribute-select {
+  flex: 0 0 140px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.edit-task-form {
+  padding: 0 16px 16px;
+}
+
+.edit-task-form .field-label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.edit-task-form .modal-actions {
+  margin-top: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  border-top: none;
+}
+
+/* === Адаптивность === */
+@media (max-width: 600px) {
+  .app {
+    padding: 0 12px;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+
+  .task-actions {
+    flex-direction: column;
+  }
+}
